@@ -10,6 +10,32 @@
 
             updateScoreElement();
             
+
+            document.querySelector('.js-rock-button').addEventListener('click', () => {
+                playGame('rock');
+            });
+
+            document.querySelector('.js-scissors-button').addEventListener('click', () => {
+                playGame('scissors');
+            });
+
+            document.querySelector('.js-paper-button').addEventListener('click', () => {
+                playGame('paper');
+            });
+
+            //this eventListener is ready when clicking certain keys to do something
+            document.body.addEventListener('keydown', (event) => {
+                if(event.key == 'r'){
+                    playGame('rock');
+                }else if(event.key == 'p'){
+                    playGame('paper');
+                }else if(event.key == 's'){
+                    playGame('scissors');
+                }else{
+                    console.log('This key doesn\'t do nothing');
+                }
+            });
+
             function playGame(playerMove) {
                 const computerMove = pickComputerMove();
 
